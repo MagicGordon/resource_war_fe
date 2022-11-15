@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
+console.log(process.env.NODE_ENV, 11111111);
+const assetPrefix = process.env.NODE_ENV === 'dev' ? '/' : '/resource_war_fe'
 const nextConfig = {
+  assetPrefix,
   reactStrictMode: true,
   images: {
     remotePatterns: [
@@ -21,7 +24,6 @@ const nextConfig = {
   webpack5: true,
   webpack: (config) => {
     config.resolve.fallback = { fs: false, path: false };
-    config.output.publicPath = './_next/'
     return config;
   },
 };
