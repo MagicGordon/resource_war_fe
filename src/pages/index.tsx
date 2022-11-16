@@ -264,7 +264,7 @@ export default function Home() {
             }>
             Get Resource Token Amount
         </button>
-        <p>{ 'amount:' + ' ' + resource?.data['coin']['value'] }</p>
+        <p>{ JSON.stringify(resource?.data) }</p>
         <br></br>
 
         {/* <input
