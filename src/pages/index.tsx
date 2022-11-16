@@ -127,7 +127,7 @@ export default function Home() {
         let hexString = tokenData.token_properties.map.data[0]['value']['value'].slice(2);
         let deserializer = new Deserializer(new Uint8Array(hexString.match(/.{1,2}/g).map((byte: any) => parseInt(byte, 16))));
         let ll = deserializer.deserializeU64().toString();
-        token_list[counter] = {"name": tokenData.id.token_data_id.name, "source":tokenData.token_properties.map.data[0]['value']['value'], "pro": ll};
+        token_list[counter] = {"name": tokenData.id.token_data_id.name, "last claim timestamp": ll};
         counter++;
       }
     }
@@ -202,7 +202,7 @@ export default function Home() {
         </button>
         <br></br>
         <input
-          placeholder="Description for your DID"
+          placeholder="input token name"
           className="mt-8 p-4 input input-bordered input-primary w-full"
           onChange={(e) =>
             updateFormInput({ ...formInput, description: e.target.value })
@@ -264,7 +264,7 @@ export default function Home() {
             }>
             Get Resource Token Amount
         </button>
-        <p>{JSON.stringify(resource)}</p>
+        <p>{ 'amount:' + ' ' + resource?.data['coin']['value'] }</p>
         <br></br>
 
         {/* <input
